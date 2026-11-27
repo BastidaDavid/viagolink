@@ -29,8 +29,9 @@
   section { padding:38px 0; }
   h2 { font-size:26px; letter-spacing:-0.3px; margin-bottom:8px; }
   .sub { color:var(--muted); margin-bottom:20px; }
-  .chips { display:flex; flex-wrap:wrap; gap:10px; }
-  .chip { border:1px solid var(--line); border-radius:999px; padding:9px 16px; font-size:15px; background:#fafbfc; }
+  .cats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .cat { border:1px solid var(--line); border-radius:14px; padding:16px 10px; font-size:15.5px; font-weight:600; text-align:center; background:#fafbfc; display:flex; align-items:center; justify-content:center; min-height:62px; }
+  @media (max-width:640px) { .cats { grid-template-columns:repeat(2,1fr); } .cat:last-child { grid-column:span 2; } }
   .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
   .step { border:1px solid var(--line); border-radius:16px; padding:20px; }
   .step .n { width:34px; height:34px; border-radius:50%; background:var(--blue); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
@@ -65,18 +66,18 @@
 <section class="wrap" id="categories">
   <h2>One app, every pro you need</h2>
   <p class="sub">Local professionals you can find and book near you:</p>
-  <div class="chips">
-    <span class="chip">Barbers</span>
-    <span class="chip">Hair Stylists</span>
-    <span class="chip">Nail Techs</span>
-    <span class="chip">Lash &amp; Brow Artists</span>
-    <span class="chip">Estheticians</span>
-    <span class="chip">Makeup Artists</span>
-    <span class="chip">Photographers</span>
-    <span class="chip">House Cleaners</span>
-    <span class="chip">Hair Braiders</span>
-    <span class="chip">Car Detailers</span>
-    <span class="chip">Lawn Care Pros</span>
+  <div class="cats">
+    <div class="cat">Barbers</div>
+    <div class="cat">Hair Stylists</div>
+    <div class="cat">Nail Techs</div>
+    <div class="cat">Lash &amp; Brow Artists</div>
+    <div class="cat">Estheticians</div>
+    <div class="cat">Makeup Artists</div>
+    <div class="cat">Photographers</div>
+    <div class="cat">House Cleaners</div>
+    <div class="cat">Hair Braiders</div>
+    <div class="cat">Car Detailers</div>
+    <div class="cat">Lawn Care Pros</div>
   </div>
 </section>
 
