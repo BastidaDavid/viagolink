@@ -38,6 +38,15 @@
   section { padding:38px 0; }
   h2 { font-size:26px; letter-spacing:-0.3px; margin-bottom:8px; }
   .sub { color:var(--muted); margin-bottom:20px; }
+  .banner { width:100%; height:auto; border-radius:16px; display:block; margin-top:28px; }
+  .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .gallery img { width:100%; height:200px; object-fit:cover; border-radius:14px; display:block; }
+  @media (max-width:640px) { .gallery { grid-template-columns:1fr; } .gallery img { height:180px; } }
+  .svcs { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+  .svc { border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; }
+  .svc img { width:100%; height:120px; object-fit:cover; display:block; }
+  .svc p { padding:10px 12px; font-size:14.5px; font-weight:600; }
+  @media (max-width:640px) { .svcs { grid-template-columns:repeat(2,1fr); gap:9px; } .svc img { height:100px; } }
   .cats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
   .cat { border:1px solid var(--line); border-radius:14px; padding:16px 10px; font-size:15.5px; font-weight:600; text-align:center; background:#fafbfc; display:flex; align-items:center; justify-content:center; min-height:62px; }
   @media (max-width:640px) { .cats { grid-template-columns:repeat(2,1fr); gap:9px; } .cat { min-height:50px; padding:11px 8px; font-size:14px; border-radius:12px; } .cat:last-child { grid-column:span 2; } .hero { padding:36px 0 20px; } section { padding:28px 0; } }
@@ -73,7 +82,34 @@
   <h1>Book trusted local pros, right on the map.</h1>
   <p>ViaGoLink connects you with barbers, stylists, nail techs and more near you. Find your pro, pick your time, and book in seconds.</p>
   <a class="btn" href="https://apps.apple.com/app/id6826927319">Get the app</a>
+  <img class="banner" src="assets/photos/hero.jpg" alt="Inside a barbershop">
 </div>
+
+<section class="wrap" id="services">
+  <h2>Popular services</h2>
+  <p class="sub">Real services from pros on the map. Book in under a minute — no card needed to book.</p>
+  <div class="svcs">
+    <div class="svc"><img src="assets/services/classic.jpg" alt="Classic cut"><p>Classic Cut</p></div>
+    <div class="svc"><img src="assets/services/fade.jpg" alt="Fade"><p>Fade</p></div>
+    <div class="svc"><img src="assets/services/buzz.jpg" alt="Buzz cut"><p>Buzz Cut</p></div>
+    <div class="svc"><img src="assets/services/beard.jpg" alt="Beard trim"><p>Beard Trim</p></div>
+    <div class="svc"><img src="assets/services/cut-beard.jpg" alt="Cut and beard"><p>Cut + Beard</p></div>
+    <div class="svc"><img src="assets/services/design.jpg" alt="Design"><p>Design</p></div>
+    <div class="svc"><img src="assets/services/kids.jpg" alt="Kids cut"><p>Kids Cut</p></div>
+    <div class="svc"><img src="assets/services/premium.jpg" alt="Premium service"><p>Premium</p></div>
+    <div class="svc"><img src="assets/services/shave.jpg" alt="Shave"><p>Shave</p></div>
+    <div class="svc"><img src="assets/services/wash-style.jpg" alt="Wash and style"><p>Wash &amp; Style</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="gallery">
+  <h2>From the shops</h2>
+  <div class="gallery">
+    <img src="assets/photos/fade-cover.jpg" alt="Barber at work">
+    <img src="assets/photos/urban-cover.jpg" alt="Barbershop interior">
+    <img src="assets/photos/club-cover.jpg" alt="Barbershop chairs">
+  </div>
+</section>
 
 <section class="wrap" id="categories">
   <h2>One app, every pro you need</h2>
