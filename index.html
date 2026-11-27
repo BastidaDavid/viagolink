@@ -15,11 +15,20 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
   .wrap { max-width:1020px; margin:0 auto; padding:0 20px; }
-  header { border-bottom:1px solid var(--line); }
+  header { border-bottom:1px solid var(--line); position:relative; }
   header .wrap { display:flex; align-items:center; justify-content:space-between; padding-top:14px; padding-bottom:14px; }
   header img { height:34px; width:auto; display:block; }
   header nav a { color:var(--ink); text-decoration:none; font-size:15px; margin-left:22px; }
   header nav a:hover { color:var(--blue); }
+  .burger { display:none; background:none; border:0; padding:8px; cursor:pointer; }
+  .burger svg { display:block; }
+  @media (max-width:640px) {
+    .burger { display:block; }
+    header nav { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid var(--line); flex-direction:column; padding:8px 20px 14px; z-index:50; }
+    header nav.open { display:flex; }
+    header nav a { margin:0; padding:10px 0; font-size:16px; border-top:1px solid var(--line); }
+    header nav a:first-child { border-top:0; }
+  }
   .hero { text-align:center; padding:56px 0 30px; }
   .hero img { width:min(430px,82vw); height:auto; }
   .hero h1 { font-size:clamp(28px,5vw,44px); line-height:1.15; letter-spacing:-0.5px; margin:26px auto 12px; max-width:700px; }
@@ -31,7 +40,7 @@
   .sub { color:var(--muted); margin-bottom:20px; }
   .cats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
   .cat { border:1px solid var(--line); border-radius:14px; padding:16px 10px; font-size:15.5px; font-weight:600; text-align:center; background:#fafbfc; display:flex; align-items:center; justify-content:center; min-height:62px; }
-  @media (max-width:640px) { .cats { grid-template-columns:repeat(2,1fr); } .cat:last-child { grid-column:span 2; } }
+  @media (max-width:640px) { .cats { grid-template-columns:repeat(2,1fr); gap:9px; } .cat { min-height:50px; padding:11px 8px; font-size:14px; border-radius:12px; } .cat:last-child { grid-column:span 2; } .hero { padding:36px 0 20px; } section { padding:28px 0; } }
   .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
   .step { border:1px solid var(--line); border-radius:16px; padding:20px; }
   .step .n { width:34px; height:34px; border-radius:50%; background:var(--blue); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
@@ -48,7 +57,10 @@
 <header>
   <div class="wrap">
     <img src="assets/logo.jpg" alt="ViaGoLink">
-    <nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#111418" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav id="mainnav">
       <a href="#categories">Categories</a>
       <a href="#how">How it works</a>
       <a href="#pros">For professionals</a>
@@ -109,5 +121,16 @@
     <div>© 2026 Bastida Systems LLC. All rights reserved.</div>
   </div>
 </footer>
+<script>
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('mainnav');
+  burger.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
+  });
+</script>
 </body>
 </html>
